@@ -137,47 +137,61 @@ def FindICO(file):
 def FileExist(file):
     return(not(path.exists(file)))
 
-SavingFile('index.html')
-links = FindHref('index.html')
-while links.__len__()>0:
-    i = links.pop()
-    if i[:1]=='/':
-        i = i[1:]
-    if SavingFile(i, i):
-        whatt = FindHref(i)
-        links = links|whatt
-        #Pict
-        whatt = FindPict(i)
-        while whatt.__len__()>0:
-            j = whatt.pop()
-            if j[:1]=='/':
-                j = j[1:]
-            SavingFile(j, j)
-        #JS
-        whatt = FindJS(i)
-        while whatt.__len__()>0:
-            j = whatt.pop()
-            if j[:1]=='/':
-                j = j[1:]
-            SavingFile(j, j)
-        #CSS
-        whatt = FindCSS(i)
-        while whatt.__len__()>0:
-            j = whatt.pop()
-            if j[:1]=='/':
-                j = j[1:]
-            SavingFile(j, j)
-            #PictInCSS
-            PIC = FindPictInCSS(j)
-            while PIC.__len__()>0:
-                pic = PIC.pop()
-                if pic[:1]=='/':
-                    pic = pic[1:]
-                SavingFile(pic, pic)
+def SaveCSS(whatt = set()):
+    while whatt.__len__()>0:
+        j = whatt.pop()
+        if j[:1]=='/':
+            j = j[1:]
+        SavingFile(j, j)
+        PIC = FindPictInCSS(j)
+        while PIC.__len__()>0:
+            pic = PIC.pop()
+            if pic[:1]=='/':
+                pic = pic[1:]
+            SavingFile(pic, pic)
+
+def SaveICO(whatt = set()):
+    while whatt.__len__()>0:
+        j = whatt.pop()
+        if j[:1]=='/':
+            j = j[1:]
+        SavingFile(j, j)
+
+def SavePict(whatt = set()):
+    while whatt.__len__()>0:
+        j = whatt.pop()
+        if j[:1]=='/':
+            j = j[1:]
+        SavingFile(j, j)
+
+def SaveJS(whatt = set()):
+    while whatt.__len__()>0:
+        j = whatt.pop()
+        if j[:1]=='/':
+            j = j[1:]
+        SavingFile(j, j)
+
+def SaveHTML(page = 'index.html'):
+    #HTML
+    if SavingFile(page):
         #ICO
-        whatt = FindICO(i)
-        while whatt.__len__()>0:
-            j = whatt.pop()
-            if j[:1]=='/':
-                j = j[1:]
-            SavingFile(j, j)
+        whatt = FindICO(page)
+        SaveICO(whatt)
+        #Pict
+        whatt = FindPict(page)
+        SavePict(whatt)
+        #JS
+        whatt = FindJS(page)
+        SaveJS(whatt)
+        #CSS
+        whatt = FindCSS(page)
+        SaveCSS(whatt)
+        #Other HTML
+        links = FindHref(page)
+        while links.__len__()>0:
+            i = links.pop()
+            if i[:1]=='/':
+                i = i[1:]
+            SaveHTML(i)
+
+SaveHTML()
