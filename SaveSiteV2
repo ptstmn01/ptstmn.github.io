@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup as bs4
 
 site = 'http://ptstmn.ru'
 site2 = 'http://ptstmn.github.io'
+error1 = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 >'
 #Сохранение файла
 def SavingFile(file, link = ''):
     if not (file.find('.ru')>0):
@@ -32,6 +33,7 @@ def SavingFile(file, link = ''):
                 OpenFile = open(file, 'w', encoding='utf8')
                 text = link.text
                 text = text.replace(site, site2)
+                text = text.replace(error1, '')
                 with OpenFile:
                     for char in text:
                         OpenFile.write(char)
@@ -173,7 +175,7 @@ def SaveJS(whatt = set()):
 
 def SaveHTML(page = 'index.html'):
     #HTML
-    if SavingFile(page):
+    if SavingFile(page, page):
         #ICO
         whatt = FindICO(page)
         SaveICO(whatt)
@@ -192,6 +194,8 @@ def SaveHTML(page = 'index.html'):
             i = links.pop()
             if i[:1]=='/':
                 i = i[1:]
+            if i == 'flaw-detection.html' or i == 'hardfacing-interlocking-joints.html':
+                True
             SaveHTML(i)
 
 SaveHTML()
