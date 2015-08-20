@@ -9,6 +9,8 @@ site2 = 'http://ptstmn.github.io'
 error1 = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 >'
 #Сохранение файла
 def SavingFile(file, link = ''):
+    if file == site2 or file == site2 + '/':
+        return False
     if not (file.find('.ru')>0):
         if FileExist(file):
             link = site + '/' + link
@@ -17,19 +19,20 @@ def SavingFile(file, link = ''):
             if not (FilePath == ''):
                 if not (path.exists(FilePath)):
                     makedirs(FilePath)
-            url = link.url
             #Картинки
-            if url[-3:] == 'png' or url[-3:] == 'jpg' or url[-4:] == 'jpeg' or url[-3:] == 'ico':
+            if file[-3:] == 'png' or file[-3:] == 'jpg' or file[-4:] == 'jpeg' or file[-3:] == 'ico':
                 OpenFile = open(file, "wb")
                 OpenFile.write(link.content)
                 OpenFile.close()
             #JavaScript and CSS
-            elif url[-2:] == 'js' or url[-3:] == 'css':
-                r = requests.get(url)
+            elif file[-2:] == 'js' or file[-3:] == 'css':
+                r = requests.get(link.url)
                 with open(file, "wb") as code:
                     code.write(r.content)
             #Остальное в частности HTML
             else:
+                if file == '':
+                    return False
                 OpenFile = open(file, 'w', encoding='utf8')
                 text = link.text
                 text = text.replace(site, site2)
@@ -54,10 +57,13 @@ def FindHref(file):
     for i in a:
         try:
             href = i.attrs['href']
-            if href.find( 'html' ) > 0:
-                flag = True
-            else:
+            if href.find( '.ru' ) > -1:
                 flag = False
+            elif href.find( '.jpg' ) > -1 or href.find( '.png' ) > -1 or href.find( '.jpeg' ) > -1\
+                 or href.find( '.js' ) > -1 or href.find( '.css' ) > -1 or href.find( '.ico' ) > -1:
+                flag = False
+            else:
+                flag = True
             if flag:
                 se.add(href)
         except KeyError:
@@ -194,8 +200,7 @@ def SaveHTML(page = 'index.html'):
             i = links.pop()
             if i[:1]=='/':
                 i = i[1:]
-            if i == 'flaw-detection.html' or i == 'hardfacing-interlocking-joints.html':
-                True
+            print(i)
             SaveHTML(i)
 
 SaveHTML()
