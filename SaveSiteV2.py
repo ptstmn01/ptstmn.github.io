@@ -7,6 +7,11 @@ from bs4 import BeautifulSoup as bs4
 site = 'http://ptstmn.ru'
 site2 = 'http://ptstmn.github.io'
 error1 = '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8 >'
+error2 = '© 2010 ПромТехСервис'
+error3 = '<a href="http://columna.ru" title="Создание сайта">Cоздание сайта</a> — Columna'
+noerror1 = ''
+noerror2 = '© 2015 ПромТехСервис'
+noerror3 = '<a href="http://vgit.ru" title="Поддержка сайта">Поддержка сайта — Студия ИТ решений VG</a>'
 #Сохранение файла
 def SavingFile(file, link = ''):
     if file == site2 or file == site2 + '/':
@@ -36,7 +41,9 @@ def SavingFile(file, link = ''):
                 OpenFile = open(file, 'w', encoding='utf8')
                 text = link.text
                 text = text.replace(site, site2)
-                text = text.replace(error1, '')
+                text = text.replace(error1, noerror1)
+                text = text.replace(error2, noerror2)
+                text = text.replace(error3, noerror3)
                 with OpenFile:
                     for char in text:
                         OpenFile.write(char)
