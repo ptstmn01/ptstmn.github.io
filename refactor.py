@@ -21,8 +21,8 @@ def refactor():
       openfile = open(file, "r", encoding="utf-8")
       text = openfile.read()
       #Исправление\замена текста
-      er1 = '''"/ptstmn.ru'''
-      nr1 = '''"ptstmn.ru'''
+      er1 = '''"ptstmn.ru'''
+      nr1 = '''"'''
       text = text.replace(er1, nr1)
       #***Исправление\замена текста
       openfile.close()
