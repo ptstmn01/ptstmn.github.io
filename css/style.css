@@ -15,29 +15,29 @@ h1, h2, strong {font-family:Georgia, "Times New Roman", Times, serif;font-style:
 h1{font-weight:bold;font-size:16px;}
 h2 {font-weight:normal;font-size:14px;}
 strong a{color:#2d7299;font-size:16px;}
-#general, #header, #footer { width:950px; margin:0 auto; clear: both; }
+#general, #header, #footer { width:100%; margin:0 auto; clear: both; }
+#general{width:90%;}
+#header { height:270px;}
 #footer{padding-top:25px;}
 *html #footer{padding-top:25px;}
 *html .separ{margin-bottom:-10px;}
-.padding {background-image:url(../images/bg-padding.png); background-color:#f2f2f2; background-repeat:repeat-x; margin: 0 auto; width:1028px;}
-.separ{ background-image:url(../images/separ.png); height:2px; width:950px; background-repeat:repeat-x; clear: both; line-height:0;}
+.padding {background-image:url(../images/bg-padding.png); background-color:#f2f2f2; background-repeat:repeat-x; margin: 0 auto; width:100%;}
+.separ{ background-image:url(../images/separ.png); height:3px; width:100%; background-repeat:repeat-x; clear: both; line-height:0;}
 .close{clear:both;}
 /*Шапка*/
-.h-left{ float:left; display:inline; margin-top: 30px; height:119px;}
-.h-right{ float:right; display:inline; text-align: right; width:auto;margin-top: 26px; height:119px;}
-.h-menu{ clear:both;}
-.h-menu strong{ color:#999 !important;}
-.h-menu li{float:left; display:inline; margin-left:25px; line-height:16px;}
-.h-contacts{ clear:both; padding-top:15px;}
-.h-contacts p{font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; color:#606060; font-size:16px; font-weight:bold; line-height:32px;}
-.h-contacts span{ font-size:20px;}
+.h-left{ float:left;margin-top: 30px; margin-left:20%;height:119px;}
+.h-contacts{text-align:center; vertical-align:middle}
+.h-contacts span{font-size:20px;}
+.h-right{ float:right;text-align:right;margin-right:15%; width:auto; height:119px;}
+.menu{ clear:both; padding-top:15px; width:100%; padding-bottom:15px;}
+.menu strong{ color:#999 !important;}
+.menu li{float:left; display:inline; margin-left:15px; line-height:16px;}
 /*Тело*/
 .g-left{float:left; display:inline; width:300px; padding-right:50px;}
 .g-right{float:right; display:inline; width:600px; margin-top:25px;}
 .g-right p{font-size:12px; line-height:18px; margin-left:14px; margin-bottom:8px;}
 .g-right h1{margin-bottom:18px;}
 .g-right table{font-size:12px; line-height:18px; margin-left:14px; margin-bottom:15px;}
-.g-menu{}
 #topnav{color:#999;font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; font-size:14px; line-height:18px; margin-top:21px;}
 #topnav a{color:#2d7299;font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; font-size:14px;}
 #topnav li{ margin-top:12px; margin-bottom:12px;}
@@ -53,7 +53,6 @@ a.p-act{color:#999 !important; text-decoration:none !important;}
 .news-date {float:right; display:inline; width:100px;font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#676767;}
 .news-intro {clear:both; padding-top:18px; padding-bottom:25px;}
 .last{}
-
 /*Футер*/
 .f-copy{ float:left; display:inline;}
 .f-create{ float:right; display:inline;}
@@ -69,21 +68,7 @@ a.p-act{color:#999 !important; text-decoration:none !important;}
 .next a{font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; font-size:16px; font-weight:bold; color:#2d7299;}
 .center{color:#2d7299; width:250px;font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; font-size:14px; margin-left:150px; text-align:left; margin-bottom:25px;}
 .content{clear:both;}
-
-
-
-
-
-
-
-
-
-
-
-
-
 .tabsheets, .tabsheets dt, .tabsheets dd { margin: 0; padding: 0; width: auto; border: none; }
-
 dl.tabsheets dt, dl.tabsheets dd { }
 .tabsheets { position: relative; padding: 0; margin-bottom: 10px; }
 .tabsheets dt { float: left; padding: 0.2em 1em; cursor: pointer; white-space: nowrap; margin-top: 0.1em; margin-bottom: -0.2em;font-family:Georgia, "Times New Roman", Times, serif;font-style:italic; font-size:14px; text-decoration:underline; color:#2d7299;}
@@ -95,3 +80,55 @@ dl.tabsheets dt, dl.tabsheets dd { }
 .tabsheets dd.active { display: block; height:100% !important;}
 .tabsheets .reducer { margin: 1em; }
 .on{text-decoration:none !important;}
+.table{display:table;}
+.row{display:table-row; vertical-align:middle; margin:0 auto; text-align:center;}
+.cell{display:table-cell;vertical-align:middle;}
+.black{background:black;}
+.bigsepar{ background:rgb(153,217,234); height:5px; width:100%;}
+.center-not-main{text-align: center; margin: 0 auto; width: 70%;padding-top:25px;}
+.center-not-main p{font-size:12px; line-height:18px; margin-left:14px; margin-bottom:8px;}
+.center-not-main h1{margin-bottom:18px;}
+.center-not-main table{font-size:12px; line-height:18px; margin-left:14px; margin-bottom:15px;}
+.collum-l{text-align:left;padding-right:3%;padding-left:20%; width:27%; vertical-align:top;}
+.collum-r{text-align:left;padding-right:20%;padding-left:3%; width:27%; vertical-align:top;}
+.sert{width:350px;}
+.clientrec1{width:347px;}
+.clientrec2{width:350px;}
+.clientrec3{width:360px;}
+.clientrec4{width:360px;}
+.clientlogo1{width:180px;}
+.clientlogo2{width:170px;}
+.clientlogo3{width:125px;}
+.clientlogo4{width:160px;}
+.clientlogo5{width:230px;}
+.clientlogo6{width:400px; padding-top: 10px;}
+.clientlogo7{width:520px;}
+.table-main {
+width: 300px; /* Ширина таблицы */
+border-collapse: collapse; /* Убираем двойные линии между ячейками */
+}
+.td-main{
+padding: 3px; /* Поля вокруг содержимого таблицы */
+border: 2px solid black; /* Параметры рамки */
+}
+.td-text{
+    padding:5px;
+    text-align:center;
+    line-height:25px;
+    height: 120px;
+    width: 300px;
+}
+.tr-text{
+}
+.td-clear{
+    height: 40px;
+}
+.cleartd{
+    border: 0px;
+}
+.flaw-det{
+    text-align: justify;
+}
+.flaw-det h1, .center-main{
+    text-align: center;
+}
